@@ -1,0 +1,13 @@
+[project]
+name = "micropython-bmp280-i2c"
+version = "0.1.0"
+description = "Wrapper around BMP280 sensor library for Raspberry Pico using I2C"
+readme = "README.md"
+requires-python = ">=3.13"  # for type annotations only
+dependencies = []
+
+[tool.ruff]
+lint.ignore = ["F401"]  # Ignore unused imports
+
+[tool.mypy]
+ignore_missing_imports = true

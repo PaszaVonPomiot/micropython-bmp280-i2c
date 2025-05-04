@@ -1,0 +1,4 @@
+.vscode/
+.python-version
+.micropico
+uv.lock
