@@ -1,7 +1,7 @@
 import time
 
 from core.bmp280 import BMP280Sensor
-from optional.logger import LoggerCSV
+from extras.logger import LoggerCSV
 
 
 def main():
