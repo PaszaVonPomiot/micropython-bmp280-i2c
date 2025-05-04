@@ -4,10 +4,6 @@ from core.bmp280 import BMP280Sensor
 from optional.logger import LoggerCSV
 
 
-
-
-
-
 def main():
     sensor = BMP280Sensor(address=118)
     logger = LoggerCSV(

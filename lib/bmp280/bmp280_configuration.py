@@ -51,10 +51,14 @@ class BMP280Configuration:
     def __init__(self):
         # Configure the 'weather monitoring' use case (page 14, table 7) as default:
         self._pressure_oversampling: int = BMP280Configuration.PRESSURE_OVERSAMPLING_1X
-        self._temperature_oversampling: int = BMP280Configuration.TEMPERATURE_OVERSAMPLING_1X
+        self._temperature_oversampling: int = (
+            BMP280Configuration.TEMPERATURE_OVERSAMPLING_1X
+        )
         self._filter_coefficient: int = BMP280Configuration.FILTER_COEFFICIENT_OFF
         self._power_mode: int = BMP280Configuration.POWER_MODE_FORCED
-        self._standby_time: int = BMP280Configuration.STANDBY_TIME_1000_MS  # Has no effect in forced mode
+        self._standby_time: int = (
+            BMP280Configuration.STANDBY_TIME_1000_MS
+        )  # Has no effect in forced mode
 
     @property
     def ctrl_meas(self) -> bytearray:
@@ -64,7 +68,11 @@ class BMP280Configuration:
         stored on the chip. The information is returned in a format that can be written to the chip.
         """
         array = bytearray(1)
-        array[0] = self._temperature_oversampling << 5 | self._pressure_oversampling << 2 | self._power_mode
+        array[0] = (
+            self._temperature_oversampling << 5
+            | self._pressure_oversampling << 2
+            | self._power_mode
+        )
         return array
 
     @property
