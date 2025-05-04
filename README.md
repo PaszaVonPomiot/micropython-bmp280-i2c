@@ -15,7 +15,7 @@ Micropython wrapper around BMP280 (HW-611 E/P 280) sensor library for Raspberry 
 ## Installation
 1. Configure pins in `config/board.py` file.
 1. Adjust the `main.py` and `boot.py` files to your needs.
-1. Copy all *.py files to the root of your Pico filesystem. Retain the directory structure.
+1. Copy all `*.py` files to the root of your Pico filesystem. Retain the directory structure.
 
 ## Sensor Functional description
 
@@ -89,4 +89,11 @@ chip_config.pressure_oversampling = BMP280Configuration.PRESSURE_OVERSAMPLING_16
 chip_config.temperature_oversampling = BMP280Configuration.TEMPERATURE_OVERSAMPLING_2X
 chip_config.filter_coefficient = BMP280Configuration.FILTER_COEFFICIENT_OFF
 chip_config.standby_time = BMP280Configuration.STANDBY_TIME__5_MS
+```
+
+```py
+# Scan I2C bus for BMP280 device address
+from machine import I2C, Pin
+i2c = I2C(0, scl=Pin(9), sda=Pin(8), freq=400000)
+i2c.scan()
 ```
